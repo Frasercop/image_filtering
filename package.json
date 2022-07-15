@@ -12,7 +12,15 @@
     "test": "jest --env node"
   },
   "keywords": [],
-  "author": "",
+  "author": "Fraser Copland",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frasercop/image_filtering.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Frasercop/image_filtering/issues"
+  },
+  "homepage": "https://github.com/Frasercop/image_filtering#readme",
   "description": ""
 }

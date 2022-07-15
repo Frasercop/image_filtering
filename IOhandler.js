@@ -22,7 +22,10 @@ const unzipper = require('unzipper'),
  * @return {promise}
  */
 const unzip = (pathIn, pathOut) => {
-
+  fs.createReadStream(pathIn)
+  .pipe(unzipper.Extract({path: pathOut}))
+  .promise()
+  .then(() => console.log(done), e => console.log('error',e));
 };
 
 /**
@@ -32,7 +35,18 @@ const unzip = (pathIn, pathOut) => {
  * @return {promise}
  */
 const readDir = dir => {
-
+  fs.readdir(path, (err, files) => {
+    if (err) {
+      console.log(err)
+    } else {
+      let pngFiles = [];
+      files.forEach(file => {
+        if (file.endsWith("png")) {
+          pngFiles.push(file);
+        }
+      });
+    }
+  } )
 };
 
 /**
@@ -44,7 +58,12 @@ const readDir = dir => {
  * @return {promise}
  */
 const grayScale = (pathIn, pathOut) => {
-
+  fs.createReadStream(path)
+  .pipe (
+    new PNG({
+      filterType: 4,
+    })
+  )
 };
 
 module.exports = {
